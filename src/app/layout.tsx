@@ -14,24 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aurum — CSS Atelier | A curated library of magnificent CSS effects",
-  description: "A curated atelier of magnificent, production-ready CSS effects. Every piece ships with a live demo and copy-ready code — pure CSS, zero dependencies.",
-  keywords: ["CSS effects", "CSS library", "CSS animations", "buttons", "cards", "loaders", "UI design", "front-end", "Aurum"],
-  authors: [{ name: "Aurum Atelier" }],
+  title: "Make This Deal — Atelier Marketplace | Buy, Sell & Invest in Businesses Worldwide",
+  description: "A magnificent, brand-forward showcase of real marketplace listings — domains, websites, fintech & digital products — pulled live from makethisdeal.biz and stored in PostgreSQL.",
+  keywords: ["makethisdeal", "business marketplace", "buy business", "sell business", "domains", "fintech", "websites for sale", "invest"],
+  authors: [{ name: "Make This Deal Atelier" }],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
   openGraph: {
-    title: "Aurum — CSS Atelier",
-    description: "A curated library of magnificent, production-ready CSS effects with live demos and copy-ready code.",
+    title: "Make This Deal — Atelier Marketplace",
+    description: "Buy, Sell & Invest in Businesses Worldwide. Real listings dressed in gold-grade CSS.",
     url: "https://chat.z.ai",
-    siteName: "Aurum CSS Atelier",
+    siteName: "Make This Deal Atelier",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aurum — CSS Atelier",
-    description: "A curated library of magnificent CSS effects with live demos and copy-ready code.",
+    title: "Make This Deal — Atelier Marketplace",
+    description: "Buy, Sell & Invest in Businesses Worldwide.",
   },
 };
 

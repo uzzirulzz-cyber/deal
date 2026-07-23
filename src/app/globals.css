@@ -235,3 +235,51 @@
   line-height: 1.7;
   tab-size: 2;
 }
+
+/* ---------- Glow border card (used for product cards) ---------- */
+.fx-glow-card {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  background: linear-gradient(180deg, oklch(0.22 0.016 285 / 0.85), oklch(0.16 0.014 285 / 0.85));
+  isolation: isolate;
+  transition: transform 0.3s ease;
+}
+
+.fx-glow-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #f59e0b, #f43f5e, #fbbf24, #f59e0b);
+  background-size: 300% 300%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  animation: glow-pan 6s linear infinite;
+}
+
+.fx-glow-card:hover {
+  transform: translateY(-3px);
+}
+
+.fx-glow-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes glow-pan {
+  to { background-position: 300% 0; }
+}
+
+/* ---------- Line clamp helper ---------- */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
