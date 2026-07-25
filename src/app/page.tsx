@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   Building2,
   Globe2,
+  Home,
   Layers,
   MapPin,
   Search,
@@ -38,10 +39,12 @@ const CATEGORY_ICON: Record<string, React.ComponentType<{ className?: string }>>
   Domains: Tag,
   FinTech: TrendingUp,
   "Digital Products": Layers,
+  "Real Estate": Home,
 };
 
 const CATEGORY_ACCENT: Record<string, string> = {
   Websites: "from-amber-300 via-amber-500 to-orange-500",
+  "Real Estate": "from-emerald-300 via-amber-400 to-rose-500",
   Domains: "from-rose-300 via-rose-500 to-pink-600",
   FinTech: "from-yellow-200 via-amber-400 to-rose-500",
   "Digital Products": "from-fuchsia-300 via-rose-500 to-amber-500",
@@ -435,11 +438,26 @@ function ProductCard({
         <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-2.5 py-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-amber-200">
           {product.category}
         </span>
-        {product.featured && (
-          <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-300 to-rose-500 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-950">
-            <Sparkles className="h-2.5 w-2.5" /> Featured
-          </span>
-        )}
+        <div className="flex items-center gap-1.5">
+          {product.status && product.status !== "Active" && (
+            <span
+              className={`rounded-full px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider ${
+                product.status === "AVAILABLE"
+                  ? "bg-emerald-400/20 text-emerald-200"
+                  : product.status === "SOLD"
+                    ? "bg-rose-400/20 text-rose-200"
+                    : "bg-amber-400/20 text-amber-200"
+              }`}
+            >
+              {product.status}
+            </span>
+          )}
+          {product.featured && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-300 to-rose-500 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wider text-amber-950">
+              <Sparkles className="h-2.5 w-2.5" /> Featured
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Name */}
@@ -455,7 +473,7 @@ function ProductCard({
         </span>
         <span className="inline-flex items-center gap-1">
           <span className="grid h-4 w-4 place-items-center rounded-full bg-gradient-to-br from-amber-400 to-rose-500 text-[0.5rem] font-bold text-amber-950">
-            P
+            {product.seller.charAt(0)}
           </span>
           {product.seller}
         </span>
