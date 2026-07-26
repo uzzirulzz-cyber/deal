@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Sentinel theme uses Montserrat throughout — clean, geometric, editorial.
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -14,23 +17,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Make This Deal — Atelier Marketplace | Buy, Sell & Invest in Businesses Worldwide",
-  description: "A magnificent, brand-forward showcase of real marketplace listings — domains, websites, fintech & digital products — pulled live from makethisdeal.biz and stored in PostgreSQL.",
-  keywords: ["makethisdeal", "business marketplace", "buy business", "sell business", "domains", "fintech", "websites for sale", "invest"],
-  authors: [{ name: "Make This Deal Atelier" }],
+  title: "Sentinel — Marketplace | Buy, Sell & Invest in Businesses Worldwide",
+  description: "A refined, editorial showcase of real marketplace listings — domains, websites, fintech, real estate & digital products — pulled live from makethisdeal.biz and stored in PostgreSQL. Sentinel theme.",
+  keywords: ["makethisdeal", "sentinel", "business marketplace", "buy business", "sell business", "domains", "fintech", "real estate", "invest"],
+  authors: [{ name: "Sentinel Marketplace" }],
   icons: {
     icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
   },
   openGraph: {
-    title: "Make This Deal — Atelier Marketplace",
-    description: "Buy, Sell & Invest in Businesses Worldwide. Real listings dressed in gold-grade CSS.",
+    title: "Sentinel — Marketplace",
+    description: "Buy, Sell & Invest in Businesses Worldwide. Real listings in a refined editorial theme.",
     url: "https://chat.z.ai",
-    siteName: "Make This Deal Atelier",
+    siteName: "Sentinel Marketplace",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Make This Deal — Atelier Marketplace",
+    title: "Sentinel — Marketplace",
     description: "Buy, Sell & Invest in Businesses Worldwide.",
   },
 };
@@ -43,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
+        className={`${montserrat.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />
